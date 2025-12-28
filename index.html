@@ -52,6 +52,7 @@
         }
 
         .begin-btn {
+            margin-top: 66px; /* roughly triple the prior spacing */
             padding: 14px 40px;
             font-size: 1.2rem;
             font-weight: 700;
@@ -122,9 +123,26 @@
         const audio = document.getElementById("christmasSound");
         const beginBtn = document.getElementById("beginBtn");
 
+        function askForPassword() {
+            const entered = window.prompt("Enter the password to continue:");
+            if (entered === null) {
+                return; // user cancelled
+            }
+            if (entered.trim() === "") {
+                window.alert("No password entered, please try again.");
+                askForPassword();
+                return;
+            }
+            window.alert("Password received.");
+        }
+
         beginBtn.addEventListener("click", () => {
             audio.currentTime = 0;
-            audio.play();
+            audio.play().catch(() => {});
+
+            setTimeout(() => {
+                askForPassword();
+            }, 2000);
         });
     </script>
 
