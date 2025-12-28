@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stage 4 - Gnosis Safe OSINT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:#0b1d2a;
+      color:#ffffff;
+    }
+
+    .page{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 70px;
+      text-align:center;
+    }
+
+    .card{
+      background: rgba(255,255,255,0.05);
+      padding: 26px;
+      border-radius: 12px;
+      text-align:left;
+    }
+
+    h1{
+      text-align:center;
+      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+      margin: 0 0 26px 0;
+    }
+
+    .lead{
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #e6eef5;
+      margin: 0 0 18px 0;
+      text-align:center;
+    }
+
+    img{
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      display:block;
+      margin: 22px auto 26px;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    }
+
+    .instructions{
+      font-size: 1rem;
+      line-height: 1.7;
+      color:#e6eef5;
+      margin: 0 0 22px 0;
+      text-align:center;
+    }
+
+    .inputRow{
+      display:flex;
+      gap: 10px;
+      justify-content:center;
+      align-items:center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    input[type="text"]{
+      width: min(680px, 100%);
+      padding: 12px 14px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+
+    button{
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: linear-gradient(145deg, #ffd700, #ffec8b);
+      color:#0b1d2a;
+    }
+
+    .result{
+      margin-top: 18px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align:center;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <h1>Stage 4</h1>
+
+  <div class="card">
+    <p class="lead">
+      Well done on making it this far... Theres hope yet that you can recover the stolen funds and prevent the purchase of WMD's
+    </p>
+
+    <img src="gnossis.png" alt="Gnosis Safe clue image">
+
+    <p class="instructions">
+      This this image to identify the website used to access this smart contract infrastructure.
+      Once identified further investigate the DPRK address 0xAd9968618D5387dc3D7Bdc0A06880FFC7bEC90a5 and identify any one of the wallet addresses which control this digital safe of stolen assets.
+    </p>
+
+    <div class="inputRow">
+      <input type="text" id="walletInput" placeholder="Enter one controlling wallet address">
+      <button type="button" id="submitBtn">Submit</button>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+</div>
+
+<script>
+  const allowed = new Set([
+    "0x98A2FAb03Ab7D20fbA1a0d03E1355bd831451aF8".toLowerCase(),
+    "0x9E2bE8d8e86516B47493dc8Dbf84e51dcFaB1251".toLowerCase(),
+    "0xf5750EECD313B7926225A0b5f8Dd620Aa2F1922D".toLowerCase(),
+    "0x6716af94a4EEE48bc965661B219eE6c40fef84B8".toLowerCase(),
+    "0xd13D590A304BE99c0bF65a4F240106D5286af187".toLowerCase()
+  ]);
+
+  const input = document.getElementById("walletInput");
+  const btn = document.getElementById("submitBtn");
+  const result = document.getElementById("result");
+
+  btn.addEventListener("click", () => {
+    const val = (input.value || "").trim().toLowerCase();
+
+    if (allowed.has(val)) {
+      result.textContent =
+        "Congratulations you tracked down the DPRK hackers and were able to freeze the stolen assets, you can collect your reward here https:xxxxxxx.com";
+    } else {
+      result.textContent = "Negative... Uh Uh... Nada... DPRK WIN";
+    }
+  });
+</script>
+
+</body>
+</html>
