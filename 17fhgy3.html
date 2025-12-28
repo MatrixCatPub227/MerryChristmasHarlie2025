@@ -153,7 +153,7 @@
 </div>
 
 <script>
-    
+    // Base64 encoded reward URL
     const _r = "aHR0cHM6Ly90aW55dXJsLmNvbS9NZXJyeVhtYXNIYXJsaWU=";
 
     function decode(v) {
@@ -166,7 +166,12 @@
         if (document.querySelector('input[name="q1"]:checked')?.value === "c") score++;
         if (document.querySelector('input[name="q2"]:checked')?.value === "c") score++;
         if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
-        if (document.querySelector('input[name="q4"]:checked')?.value === "c") score++;
+
+        const q4 = document.querySelector('input[name="q4"]:checked');
+        if (q4 && q4.parentElement.textContent.trim() === "TraderTraitor") {
+            score++;
+        }
+
         if (document.querySelector('input[name="q5"]:checked')?.value === "c") score++;
 
         const resultEl = document.getElementById("result");
