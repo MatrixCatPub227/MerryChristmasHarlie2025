@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Merry Christmas Harlie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Georgia", serif;
+            background: radial-gradient(circle at top, #1b3a57, #0b1d2a);
+            overflow: hidden;
+            color: #ffffff;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.6),
+                0 0 20px rgba(255, 215, 0, 0.6),
+                0 0 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            user-select: none;
+            animation-name: fall;
+            animation-timing-function: linear;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Merry Christmas Harlie</h1>
+    </div>
+
+    <audio id="christmasSound" src="https://tuna.voicemod.net/sound/320c354c-f2c7-4b8e-a62f-130ba8c38768"></audio>
+
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement("div");
+            snowflake.className = "snowflake";
+            snowflake.textContent = "❄";
+            snowflake.style.left = Math.random() * 100 + "vw";
+            snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000);
+        }
+
+        setInterval(createSnowflake, 200);
+
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const audio = document.getElementById("christmasSound");
+                audio.play().catch(() => {
+                    console.log("Autoplay blocked until user interaction");
+                });
+            }, 3000);
+        });
+    </script>
+
+</body>
+</html>
