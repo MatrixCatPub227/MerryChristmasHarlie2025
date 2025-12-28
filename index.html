@@ -106,45 +106,54 @@
     <audio id="christmasSound" src="game.mp3" preload="auto"></audio>
 
     <script>
-        function createSnowflake() {
-            const snowflake = document.createElement("div");
-            snowflake.className = "snowflake";
-            snowflake.textContent = "❄";
-            snowflake.style.left = Math.random() * 100 + "vw";
-            snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
-            snowflake.style.animationDuration = (Math.random() * 5 + 5) + "s";
-            document.body.appendChild(snowflake);
+    function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.className = "snowflake";
+        snowflake.textContent = "❄";
+        snowflake.style.left = Math.random() * 100 + "vw";
+        snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
+        snowflake.style.animationDuration = (Math.random() * 5 + 5) + "s";
+        document.body.appendChild(snowflake);
 
-            setTimeout(() => snowflake.remove(), 10000);
+        setTimeout(() => snowflake.remove(), 10000);
+    }
+
+    setInterval(createSnowflake, 200);
+
+    const audio = document.getElementById("christmasSound");
+    const beginBtn = document.getElementById("beginBtn");
+
+    // Base64 encoded values
+    const _p = "VGgxc0lzVXJQdw==";       // 
+    const _d = "MTdmaGd5My5odG1s";       // 
+
+    function decode(v) {
+        return atob(v);
+    }
+
+    function askForPassword() {
+        const entered = window.prompt("Enter the password to continue:");
+        if (entered === null) {
+            return;
         }
 
-        setInterval(createSnowflake, 200);
-
-        const audio = document.getElementById("christmasSound");
-        const beginBtn = document.getElementById("beginBtn");
-
-        function askForPassword() {
-            const entered = window.prompt("Enter the password to continue:");
-            if (entered === null) {
-                return; // user cancelled
-            }
-            if (entered.trim() === "") {
-                window.alert("No password entered, please try again.");
-                askForPassword();
-                return;
-            }
-            window.alert("Password received.");
+        if (entered === decode(_p)) {
+            window.location.href = decode(_d);
+        } else {
+            window.alert("Incorrect password.");
         }
+    }
 
-        beginBtn.addEventListener("click", () => {
-            audio.currentTime = 0;
-            audio.play().catch(() => {});
+    beginBtn.addEventListener("click", () => {
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
 
-            setTimeout(() => {
-                askForPassword();
-            }, 2000);
-        });
-    </script>
+        setTimeout(() => {
+            askForPassword();
+        }, 2000);
+    });
+</script>
+
 
 </body>
 </html>
