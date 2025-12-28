@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stage 3 - Can You Defeat The DPRK?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1d2a;
+            color: #ffffff;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: 1px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+            margin-bottom: 40px;
+        }
+
+        .question {
+            background: rgba(255,255,255,0.05);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .question h2 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .address {
+            font-family: monospace;
+            font-size: 1.05rem;
+            background: rgba(0,0,0,0.4);
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            word-break: break-all;
+        }
+
+        .context {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #e6eef5;
+            text-align: center;
+        }
+
+        .answers label {
+            display: block;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+
+        .answers input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <h1>Stage 3 - Can You Defeat The DPRK?</h1>
+
+    <img src="Lazarus.png" alt="Lazarus Group illustration">
+
+    <div class="question">
+        <h2>Question 1</h2>
+
+        <p class="context">
+            The following Ethereum address has been linked to the storage of stolen funds attributed to DPRK-linked activity.
+            Using <strong>etherscan.io</strong>, determine what type of address this is.
+        </p>
+
+        <div class="address">
+            0xAd9968618D5387dc3D7Bdc0A06880FFC7bEC90a5
+        </div>
+
+        <div class="answers">
+            <label>
+                <input type="radio" name="q1">
+                Normal address (Externally Owned Account)
+            </label>
+            <label>
+                <input type="radio" name="q1">
+                Smart contract
+            </label>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
