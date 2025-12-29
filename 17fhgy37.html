@@ -22,8 +22,24 @@
         }
 
         h1 {
-            margin-bottom: 30px;
+            margin-bottom: 18px;
             font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        .intro {
+            background: rgba(255,255,255,0.05);
+            padding: 22px;
+            border-radius: 12px;
+            margin: 0 auto 34px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            color: #e6eef5;
+            text-align: left;
+        }
+
+        .intro p {
+            margin-top: 0;
+            margin-bottom: 14px;
         }
 
         img {
@@ -77,7 +93,7 @@
             font-size: 1.1rem;
             font-weight: bold;
             text-align: center;
-            word-break: break-all;
+            overflow-wrap: anywhere;
         }
     </style>
 </head>
@@ -85,6 +101,22 @@
 
 <div class="page">
     <h1>Stage 3 - Can You Defeat The DPRK?</h1>
+
+    <div class="intro">
+        <p><strong>🎄 Mission Update</strong></p>
+        <p>
+            Great work, investigator. The stolen crypto has now been traced to a specific Ethereum address.
+            This is where the trail gets dangerous, because this wallet could reveal the DPRK’s next move.
+        </p>
+        <p>
+            Your task is to interrogate the address using open source tools and work out what it really is.
+            If it is part of contract infrastructure, it may be linked to a digital safe controlling the stolen funds.
+        </p>
+        <p>
+            Find out how the safe works, identify the infrastructure it belongs to, and you may be able to stop the arms deal before it is too late.
+            The world is counting on you, and your Christmas present depends on it.
+        </p>
+    </div>
 
     <img src="Lazarus.png" alt="Lazarus Group illustration">
 
@@ -136,8 +168,7 @@
         const value = input.value.trim();
 
         if (value === "GnosisSafeProxy") {
-            result.textContent =
-                "https://matrixcatpub227.github.io/MerryChristmasHarlie2025/17fhgy3743.html";
+            result.textContent = "https://matrixcatpub227.github.io/MerryChristmasHarlie2025/17fhgy3743.html";
         } else if (value.length > 0) {
             result.textContent = "Negative... Uh Uh... Nada... DPRK WIN";
         } else {
