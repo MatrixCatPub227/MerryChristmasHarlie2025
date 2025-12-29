@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Stage 4 - Gnosis Safe OSINT</title>
+  <title>Stage 4</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -94,7 +94,7 @@
       font-size: 1.05rem;
       font-weight: 700;
       text-align:center;
-      word-break: break-all;
+      overflow-wrap: anywhere;
     }
   </style>
 </head>
@@ -105,7 +105,7 @@
 
   <div class="card">
     <p class="lead">
-      Well done on making it this far... Theres hope yet that you can recover the stolen funds and prevent the purchase of WMD's
+      Well done on making it this far... Theres hope yet that you can recover the stolen funds and prevent the purchase of the nuclear material
     </p>
 
     <img src="gnossis.png" alt="Gnosis Safe clue image">
@@ -141,9 +141,7 @@
     const val = (input.value || "").trim().toLowerCase();
 
     if (allowed.has(val)) {
-      result.textContent =
-        "Congratulations you tracked down the DPRK hackers and were able to freeze the stolen assets, 
-		you can collect your reward here https:xxxxxxx.com";
+      result.textContent = "Congratulations you tracked down the DPRK hackers and were able to freeze the stolen assets, you can collect your reward here https:xxxxxxx.com";
     } else {
       result.textContent = "Negative... Uh Uh... Nada... DPRK WIN";
     }
