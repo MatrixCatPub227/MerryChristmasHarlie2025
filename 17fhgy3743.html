@@ -36,10 +36,10 @@
 
     .lead{
       font-size: 1.05rem;
-      line-height: 1.6;
+      line-height: 1.7;
       color: #e6eef5;
-      margin: 0 0 18px 0;
-      text-align:center;
+      margin: 0 0 22px 0;
+      text-align:left;
     }
 
     img{
@@ -105,14 +105,30 @@
 
   <div class="card">
     <p class="lead">
-      Well done on making it this far... Theres hope yet that you can recover the stolen funds and prevent the purchase of the nuclear material
+      <strong>🎄 Final Mission Briefing</strong>
+    </p>
+    <p class="lead">
+      Excellent work. You have confirmed that the stolen funds are being held inside a smart contract vault,
+      and you have identified the contract infrastructure being used to safeguard the assets.
+    </p>
+    <p class="lead">
+      This is the final step. Somewhere behind this contract is a group of wallets that control access to the vault.
+      If you can identify just one of them, the flow of funds can be frozen and the arms deal stopped.
+    </p>
+    <p class="lead">
+      The image below is your final clue. Use open source intelligence techniques to work out which website it points to,
+      then investigate the contract and uncover who really controls the vault.
+      Succeed, and you will unlock the password to your Christmas present.
+      Fail, and the consequences will be far more serious than a missing gift.
     </p>
 
     <img src="gnossis.png" alt="Gnosis Safe clue image">
 
     <p class="instructions">
       Use this image to identify the website which facilitates access to this smart contract infrastructure.
-      Once identified further investigate the DPRK address 0xAd9968618D5387dc3D7Bdc0A06880FFC7bEC90a5 and identify any one of the wallet addresses which control this digital safe of stolen assets.
+      Once identified, further investigate the DPRK address
+      <strong>0xAd9968618D5387dc3D7Bdc0A06880FFC7bEC90a5</strong>
+      and identify any one of the wallet addresses which control this digital safe of stolen assets.
     </p>
 
     <div class="inputRow">
@@ -141,7 +157,8 @@
     const val = (input.value || "").trim().toLowerCase();
 
     if (allowed.has(val)) {
-      result.textContent = "Congratulations you tracked down the DPRK hackers and were able to freeze the stolen assets, you can collect your reward using the password MerrYCh4is7mas";
+      result.textContent =
+        "Congratulations you tracked down the DPRK hackers and were able to freeze the stolen assets, you can collect your reward using the password MerrYCh4is7mas";
     } else {
       result.textContent = "Negative... Uh Uh... Nada... DPRK WIN";
     }
