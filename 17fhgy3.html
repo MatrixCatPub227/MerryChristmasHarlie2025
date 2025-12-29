@@ -179,27 +179,35 @@
 </div>
 
 <script>
+    // Reward URL (Base64)
     const _r = "aHR0cHM6Ly90aW55dXJsLmNvbS9NZXJyeVhtYXNIYXJsaWU=";
+
+    // Answer key as Base64 JSON, not readable at a glance:
+    // {"q1":"c","q2":"c","q3":"b","q4":"TraderTraitor","q5":"c"}
+    const _k = "eyJxMSI6ImMiLCJxMiI6ImMiLCJxMyI6ImIiLCJxNCI6IlRyYWRlclRyYWl0b3IiLCJxNSI6ImMifQ==";
 
     function decode(v) {
         return atob(v);
     }
 
+    function getKey() {
+        return JSON.parse(decode(_k));
+    }
+
     function checkAnswers() {
+        const key = getKey();
         let success = true;
 
-        if (document.querySelector('input[name="q1"]:checked')?.value !== "c") success = false;
-        if (document.querySelector('input[name="q2"]:checked')?.value !== "c") success = false;
-        if (document.querySelector('input[name="q3"]:checked')?.value !== "b") success = false;
+        if (document.querySelector('input[name="q1"]:checked')?.value !== key.q1) success = false;
+        if (document.querySelector('input[name="q2"]:checked')?.value !== key.q2) success = false;
+        if (document.querySelector('input[name="q3"]:checked')?.value !== key.q3) success = false;
 
         const q4 = document.querySelector('input[name="q4"]:checked');
-        if (!q4 || q4.parentElement.textContent.trim() !== "TraderTraitor") success = false;
+        if (!q4 || q4.parentElement.textContent.trim() !== key.q4) success = false;
 
-        if (document.querySelector('input[name="q5"]:checked')?.value !== "c") success = false;
+        if (document.querySelector('input[name="q5"]:checked')?.value !== key.q5) success = false;
 
-        const resultEl = document.getElementById("result");
-
-        resultEl.textContent = success
+        document.getElementById("result").textContent = success
             ? decode(_r)
             : "Uh oh... Look's like North Korea will be able to purchase their nuclear material after all.";
     }
